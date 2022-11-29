@@ -5,7 +5,7 @@ $todo_list =json_decode($todo, true);
 if(isset($_POST["text"])) {
     $input_txt = $_POST["text"];
     $todo_list[] = ["text" => $input_txt, "done" => false ];
-
+    
     file_put_contents("todo.json", json_encode($todo_list));
 }
 

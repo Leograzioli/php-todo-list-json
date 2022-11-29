@@ -23,16 +23,18 @@
             <div class="row justify-content-center">
                 <div class="col-7 text-center">
                     <ul class="list-group text-start">
-                        <li v-for="(item, i) in todoList" class="list-group-item d-flex justify-content-between">
+                        <li v-for="(item, i) in todoList" @click="toggleDone(i)" class="list-group-item d-flex justify-content-between">
                             <div :class="item.done? 'text-decoration-line-through' : ''">
                                 {{item.text}}
                             </div>
 
-                            <div v-if="item.done">
-                                &#x2714;
-                            </div>
-                            <div v-else>
-                                &#x2716;
+                            <div class="is-done">
+                                <div v-if="item.done">
+                                    &#x2714;
+                                </div>
+                                <div v-else>
+                                    &#x2716;
+                                </div>
                             </div>
                         </li>
                     </ul>
