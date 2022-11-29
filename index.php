@@ -21,7 +21,7 @@
     <div class="container mt-5">
         <h1 class="text-center mb-5">My Todo List</h1>
         <div class="row justify-content-center">
-            <div class="col-6 text-center">
+            <div class="col-7 text-center">
                 <ul class="list-group text-start">
                     <li v-for="(item, i) in todoList" class="list-group-item d-flex justify-content-between">
                         <div>
@@ -34,6 +34,11 @@
                     </li>
                 </ul>
             </div>
+            <div class="col-7 mt-5">
+                <input type="text" class="form-control" placeholder="input new todo" aria-label="input new todo" v-model="inputTxt">
+                <button @click="addTodo" class="btn btn-primary mt-1">ADD!</button>
+            </div>
+
         </div>
     </div>
    </div>
