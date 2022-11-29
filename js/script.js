@@ -16,7 +16,6 @@ createApp({
         addTodo () {
             const data = {
                 text: this.inputTxt,
-                done: false
             }
             axios.post('server.php', data, {
                 headers: {'Content-Type': 'multipart/form-data'}
