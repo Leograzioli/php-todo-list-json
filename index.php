@@ -18,6 +18,24 @@
 <body>
 
    <div id="app">
+    <div class="container mt-5">
+        <h1 class="text-center mb-5">My Todo List</h1>
+        <div class="row justify-content-center">
+            <div class="col-6 text-center">
+                <ul class="list-group text-start">
+                    <li v-for="(item, i) in todoList" class="list-group-item d-flex justify-content-between">
+                        <div>
+                            {{item.text}}
+                        </div>
+
+                        <div>
+                            {{item.done}}
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
    </div>
 
     <script src="js/script.js"></script>
