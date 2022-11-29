@@ -5,7 +5,6 @@ createApp({
         return {
             todoList: [],
             inputTxt: "",
-            clickedIndex: 0
         }
     },
     created() {
@@ -27,8 +26,30 @@ createApp({
         },
 
         toggleDone(index) {
-            this.clickedIndex = index;
-            this.todoList[this.clickedIndex].done = !this.todoList[this.clickedIndex].done
+
+            this.todoList[index].done = !this.todoList[index].done
+
+            const data = {
+                i: index,
+                done: this.todoList[index].done
+            }
+
+            axios.post('server.php', data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            })
+        },
+
+        cancelTask(index) {
+            console.log(index);
+             const data = {
+                index: index
+             }
+
+             axios.post('server.php', data, {
+                headers: { 'Content-Type': 'multipart/form-data' }
+            }).then( (resp) => {
+                this.todoList = resp.data
+            })
         }
     }
 }).mount("#app")

@@ -13,6 +13,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/0.27.2/axios.min.js" integrity="sha512-odNmoc1XJy5x1TMVMdC7EMs3IVdItLPlCeL5vSUPN2llYKMJ2eByTTAIiiuqLg+GdNr9hF6z81p27DArRFKT7A==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
     <!-- Vue -->
     <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    
+    <link rel="stylesheet" href="css/style.css">
 </head>
 
 <body>
@@ -23,18 +25,19 @@
             <div class="row justify-content-center">
                 <div class="col-7 text-center">
                     <ul class="list-group text-start">
-                        <li v-for="(item, i) in todoList" @click="toggleDone(i)" class="list-group-item d-flex justify-content-between">
-                            <div :class="item.done? 'text-decoration-line-through' : ''">
+                        <li v-for="(item, i) in todoList"  class="list-group-item d-flex justify-content-between">
+                            <div class="todos" :class="item.done? 'text-decoration-line-through' : ''" @click="toggleDone(i)">
                                 {{item.text}}
                             </div>
 
-                            <div class="is-done">
+                            <div class="is-done d-flex">
                                 <div v-if="item.done">
                                     &#x2714;
                                 </div>
-                                <div v-else>
+                                <div v-else >
                                     &#x2716;
                                 </div>
+                                <button class="btn btn-danger ms-2" @click="cancelTask(i)">delete</button>
                             </div>
                         </li>
                     </ul>
