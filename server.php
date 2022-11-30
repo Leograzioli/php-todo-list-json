@@ -16,7 +16,7 @@ if (isset($_POST["done"])) {
 
 if (isset($_POST["index"])) {
     $index = $_POST['index'];
-    unset($todo_list[$index]);
+    array_splice($todo_list, $index, 1);
     file_put_contents("todo.json", json_encode($todo_list));
 }
 
