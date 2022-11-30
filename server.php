@@ -8,9 +8,9 @@ if(isset($_POST["text"])) {
     file_put_contents("todo.json", json_encode($todo_list));
 }
 
-if (isset($_POST["done"])) {
-    $done = $_POST["done"] == "true" ? true : false;
-    $todo_list[$_POST["i"]]["done"] = $done;
+if (isset($_POST["i"])) {
+    $done = $_POST["i"];
+    $todo_list[$done]["done"] = !$todo_list[$done]["done"];
     file_put_contents("todo.json", json_encode($todo_list));
 }
 

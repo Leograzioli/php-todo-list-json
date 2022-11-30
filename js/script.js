@@ -29,15 +29,14 @@ createApp({
 
         toggleDone(index) {
 
-            this.todoList[index].done = !this.todoList[index].done
-
             const data = {
                 i: index,
-                done: this.todoList[index].done
             }
 
             axios.post('server.php', data, {
                 headers: { 'Content-Type': 'multipart/form-data' }
+            }).then( (resp) => {
+                this.todoList = resp.data
             })
         },
 
