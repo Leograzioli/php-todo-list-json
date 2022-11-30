@@ -14,15 +14,17 @@ createApp({
     },
     methods: {
         addTodo() {
-            const data = {
-                text: this.inputTxt,
+            if (this.inputTxt.length > 4) {
+                const data = {
+                    text: this.inputTxt,
+                }
+                axios.post('server.php', data, {
+                    headers: { 'Content-Type': 'multipart/form-data' }
+                }).then((resp) => {
+                    this.todoList = resp.data,
+                        this.inputTxt = ""
+                });
             }
-            axios.post('server.php', data, {
-                headers: { 'Content-Type': 'multipart/form-data' }
-            }).then((resp) => {
-                this.todoList = resp.data,
-                    this.inputTxt = ""
-            });
         },
 
         toggleDone(index) {

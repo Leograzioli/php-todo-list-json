@@ -43,7 +43,7 @@
                     </ul>
                 </div>
                 <div class="col-7 mt-5">
-                    <input type="text" @keyup.enter="addTodo" class="form-control" placeholder="input new todo" aria-label="input new todo" v-model="inputTxt">
+                    <input type="text" @keyup.enter="addTodo" class="form-control" placeholder="input new todo" aria-label="input new todo" v-model.trim="inputTxt">
                     <button @click="addTodo" class="btn btn-primary mt-1">ADD!</button>
                 </div>
 
